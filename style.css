@@ -1,5 +1,6 @@
 /**
 == COLORS ==
+#07060c
 #1c2235
 #224ac2
 #19ac21
@@ -9,13 +10,17 @@
 */
 
 body {
-  background-color: #1c2235;
+  background-color: #07060c;
   color: #ffffff;
     margin: 0px;
 }
 
 p {
     font-family: "Nunito", 'Monospace', sans-serif;
+}
+
+a {
+    word-wrap: break-word;
 }
 
 header {
@@ -33,10 +38,36 @@ header#real-header {
     display: none;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 720px) {
     header#real-header {
         z-index: 2;
         position: fixed;
+        display: block;
+    }
+
+    .show-just-mobile {
+        display: none;
+    }
+    .show-just-desktop {
+        display: contents;
+    }
+
+    .botao-opcoes {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 719px) {
+    header#mobile-version p {
+        padding: 5vw;
+        font-size: 10vh;
+    }
+
+    .show-just-mobile {
+        display: contents;
+    }
+    .show-just-desktop {
+        display: none;
     }
 }
 
@@ -102,6 +133,52 @@ header nav a:hover {
     background-color: #224ac2;
 }
 
+#div-opcoes {
+    background-color: #07060c;
+    position: fixed;
+    width: 100%;
+}
+
+.botao-opcoes {
+    padding: 5px;
+}
+
+.retangulo {
+    width: 22px;
+    height: 3px;
+    margin: 3px;
+    background-color: #ffffff;
+}
+
+#nav-menu-mobile {
+    position: fixed;
+    top: 5vh;
+    z-index: 2;
+}
+
+#nav-menu-mobile ul {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#nav-menu-mobile ul li {
+    list-style: none;
+    text-align: center;
+    background-color: #090c15;
+    width: 100vw;
+    display: flex;
+}
+
+#nav-menu-mobile ul li a {
+    padding: 3vw;
+    width: 100%;
+}
+
+#nav-menu-mobile ul li a:hover {
+    background-color: #224ac2;
+}
+
 #conteudo {
     margin: 0 3em;
     width: auto;
@@ -145,4 +222,28 @@ header nav a:hover {
 
 .table-center {
     margin: auto;
+}
+
+.z-indez-1 {
+    z-index: 1;
+}
+
+.z-indez-2 {
+    z-index: 2;
+}
+
+.z-indez-3 {
+    z-index: 3;
+}
+
+.no-show {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.show-flex {
+    display: flex;
 }
