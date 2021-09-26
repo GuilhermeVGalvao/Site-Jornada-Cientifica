@@ -1,0 +1,148 @@
+/**
+== COLORS ==
+#1c2235
+#224ac2
+#19ac21
+#22c22a
+#43e74b
+#00ea9a
+*/
+
+body {
+  background-color: #1c2235;
+  color: #ffffff;
+    margin: 0px;
+}
+
+p {
+    font-family: "Nunito", 'Monospace', sans-serif;
+}
+
+header {
+    top: 0px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #224ac2;
+    color: #fff;
+}
+
+header#real-header {
+    z-index: 2;
+    position: block;
+    display: none;
+}
+
+@media screen and (min-width: 1200px) {
+    header#real-header {
+        z-index: 2;
+        position: fixed;
+    }
+}
+
+header p {
+    margin: 0px;
+    padding: 2vw;
+    font-size: 20pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#div-menu {
+    display: flex;
+    justify-content: center;
+    background-color: #090c15;
+}
+
+header div nav,
+header ul,
+header li {
+    margin: 0px;
+    padding: 0px;
+}
+
+#nav-menu ul {
+    display: flex;
+    justify-content: center;
+}
+
+#nav-menu ul li {
+    display: block;
+    box-sizing: border-box;
+    font-size: 100%;
+    list-style: none;
+}
+
+#nav-menu ul li a {
+    display: flex;
+    align-items: center;
+    font-size: 100%;
+    padding: 1em 1.5em;
+}
+
+#nav-menu ul {
+    /*background-color: #090c15;*/
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+header nav a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Nunito", 'Monospace', sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #090c15;
+}
+
+header nav a:hover {
+    background-color: #224ac2;
+}
+
+#conteudo {
+    margin: 0 3em;
+    width: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.my-1 {
+    margin: 1em 0;
+}
+
+.my-2 {
+    margin: 2em 0;
+}
+
+.my-3 {
+    margin: 3em 0;
+}
+
+.my-4 {
+    margin: 4em 0;
+}
+
+.my-5 {
+    margin: 5em 0;
+}
+
+.mt-1 {
+    margin-top: 1em;
+}
+
+.mt-2 {
+    margin-top: 2em;
+}
+
+.mb-1 {
+    margin-bottom: 1em;
+}
+
+.table-center {
+    margin: auto;
+}
