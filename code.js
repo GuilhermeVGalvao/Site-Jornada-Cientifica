@@ -13,7 +13,5 @@ function showMobileMenu() {
     mobileMenu.classList.remove("show");
     mobileMenu.classList.add("no-show");
   }
+  console.log(window.DOMPoint);
 }
-
-
-console.log(mobileMenu.classList);

@@ -38,7 +38,7 @@ header#real-header {
     display: none;
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 1200px) {
     header#real-header {
         z-index: 2;
         position: fixed;
@@ -57,7 +57,7 @@ header#real-header {
     }
 }
 
-@media screen and (max-width: 719px) {
+@media screen and (max-width: 1199px) {
     header#mobile-version p {
         padding: 5vw;
         font-size: 10vh;
@@ -171,7 +171,7 @@ header nav a:hover {
 }
 
 #nav-menu-mobile ul li a {
-    padding: 3vw;
+    padding: 20px;
     width: 100%;
 }
 
