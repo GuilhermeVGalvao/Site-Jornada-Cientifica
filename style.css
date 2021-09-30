@@ -1,6 +1,10 @@
 /**
 == COLORS ==
 #07060c
+#080c13
+#080b10
+#12151d
+#191c25
 #1c2235
 #224ac2
 #19ac21
@@ -9,9 +13,10 @@
 #00ea9a
 */
 
+/* == ALTERAÇÕES GENÉRICAS NA PÁGINA == */
 body {
-  background-color: #07060c;
-  color: #ffffff;
+    background-color: #080b10;
+    color: #ffffff;
     margin: 0px;
 }
 
@@ -23,6 +28,11 @@ a {
     word-wrap: break-word;
 }
 
+h2 {
+    text-transform: uppercase;
+    margin: 0px;
+}
+
 header {
     top: 0px;
     width: 100%;
@@ -32,16 +42,17 @@ header {
     color: #fff;
 }
 
+/* == MENU DE NAVEGAÇÃO FIXO EXCLUSIVO DA VERSÃO DESKTOP ==*/
 header#real-header {
     z-index: 2;
     position: block;
     display: none;
 }
 
+/* == ALTERAÇÕES NO MENU DE NAVEGAÇÃO PARA A VERSÃO DESKTOP == */
 @media screen and (min-width: 1200px) {
     header#real-header {
         z-index: 2;
-        position: fixed;
         display: block;
     }
 
@@ -49,25 +60,36 @@ header#real-header {
         display: none;
     }
     .show-just-desktop {
-        display: contents;
-    }
-
-    .botao-opcoes {
-        display: none;
+        display: block;
     }
 }
 
+/* == ALTERAÇÕES NO MENU DE NAVEGAÇÃO PARA A VERSÃO MOBILE == */
 @media screen and (max-width: 1199px) {
     header#mobile-version p {
-        padding: 5vw;
+        padding: 7vw;
         font-size: 10vh;
     }
 
     .show-just-mobile {
-        display: contents;
+        display: block;
     }
     .show-just-desktop {
         display: none;
+    }
+}
+
+@media screen and (max-width: 20cm) {
+    header#mobile-version p {
+        padding: 7vw;
+        font-size: 200%;
+    }
+}
+
+@media screen and (max-width: 10cm) {
+    header#mobile-version {
+        height: 100vh;
+        font-size: 150%;
     }
 }
 
@@ -78,6 +100,7 @@ header p {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+/* MENU INCIAL DA PÁGINA */
 #div-menu {
     display: flex;
     justify-content: center;
@@ -179,13 +202,134 @@ header nav a:hover {
     background-color: #224ac2;
 }
 
+
+/* DIV COM O CONTEÚDO DAS SECTIONS */
 #conteudo {
-    margin: 0 3em;
     width: auto;
 }
 
+#conteudo h1 {
+    font-family: 'Oswald';
+    padding: 2vh 15vw;
+}
+
+/* SECTIONS */
+#section1 div.container div.item {
+    width: 50%;
+}
+
+/* CLASSES GENÉRICAS PARA FLEX ITEM'S */
+.container {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.flex-align-stretch {
+    align-items:stretch;
+}
+
+.flex-align-center {
+    align-items: center;
+}
+
+.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-space-between {
+    justify-content: space-between;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.sessao {
+    padding: 0px;
+    margin: 0px 5vw;
+}
+
+
+/* CLASSES DE ESTILIZAÇÃO */
+.frame {
+    padding: 2vw 5vw;
+    /* background-color: #224ac2; */
+    font-family: 'Roboto';
+}
+
+.dark-frame {
+    background-color: #191c25;
+}
+
+.yellow-frame {
+    background-color: #ffe88b;
+    /* color:#191c25; */
+}
+.yellow-frame:hover {
+    background-color: #191c25;
+    /* color:#ffe88b; */
+}
+
+.dark-yellow-frame {
+    background-color: #191c25;
+    /* color: #ffffff; */
+}
+
+.dark-yellow-item {
+    background-color: #191c25;
+    color: #ffe88b;
+}
+
+.blue-frame {
+    background-color: #224ac2;
+    color:#ffffff;
+}
+
+.dark-blue-frame {
+    background-color: #191c25;
+}
+
+.gray-frame {
+    background-color: #292c35;
+}
+
+/* INTERAÇÕES COM O MOUSE */
+.dark-yellow-frame:hover .principal {
+    background-color: #ffe88b;
+    color: #191c25;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.dark-blue-frame:hover .principal  {
+    background-color: #224ac2;
+    color: #ffffff;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.dark-blue-item:hover .principal  {
+    background-color: #224ac2;
+    color: #ffffff;
+	transition: background-color 0.2s ease-in-out;
+}
+
+/* CLASSES GENÉRICAS PARA POSICIONAMENTO */
 .center {
     text-align: center;
+}
+
+.justify {
+    text-align: justify;
 }
 
 .my-1 {
@@ -236,6 +380,22 @@ header nav a:hover {
     z-index: 3;
 }
 
+.grow0 {
+    flex-grow: 0;
+}
+
+.grow1 {
+    flex-grow: 1;
+}
+
+.grow2 {
+    flex-grow: 2;
+}
+
+.grow3 {
+    flex-grow: 3;
+}
+
 .no-show {
     display: none;
 }
@@ -246,4 +406,39 @@ header nav a:hover {
 
 .show-flex {
     display: flex;
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+/* MODIFICAÇÕES PARA MOBILE */
+@media screen and (max-width: 20cm) {
+    #conteudo h1 {
+        padding: 0px;
+        font-size: 7vw;
+        margin-top: 1em;
+    }
+
+    section {
+        padding: 0px;
+    }
+
+    #conteudo {
+        margin: 0px;
+    }
+
+    .frame {
+        margin: 2vw 0px;
+        padding: 5vw 7vw;
+    }
+
+    .sessao {
+        flex-wrap: wrap;
+        margin: 0px;
+    }
+
+    #section1 div.container div.item {
+        width: 100%;
+    }
 }
