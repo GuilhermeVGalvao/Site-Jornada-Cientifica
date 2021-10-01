@@ -29,6 +29,8 @@ p {
 
 a {
     word-wrap: break-word;
+    text-decoration: none;
+    color: #FFBC4F;
 }
 
 h2 {
@@ -289,9 +291,28 @@ header nav a:hover {
     font-weight: bold;
 }
 
+.text-item {
+    padding: 2vw 5vw;
+    font-family: 'Roboto';
+}
+
+.generic-link-selection {
+    font-family: 'Nunito';
+    margin: 0px 10vw;
+    padding: 0px;
+    color:#ffffff
+}
+.generic-link-selection li {
+    width: 100%;
+}
+.generic-link-selection a {
+    padding: 2vw;
+    width: 100%;
+    border: 1px solid #292c35;
+}
 
 .frame {
-    padding: 2vw 5vw;
+    padding: 2vw 10vw;
     /* background-color: #224ac2; */
     font-family: 'Roboto';
 }
@@ -366,12 +387,17 @@ header nav a:hover {
 
 .blue-frame {
     background-color: #224ac2;
-    color:#ffffff;
     transition: background-color 0.2s ease-in-out;
 }
 
 .dark-blue-frame {
     background-color: #191c25;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.dark-blue-item {
+    background-color: #191c25;
+    color: #ffffff;
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -406,13 +432,7 @@ header nav a:hover {
 	transition: background-color 0.2s ease-in-out;
 }
 
-.dark-blue-frame:hover .principal  {
-    background-color: #224ac2;
-    color: #ffffff;
-	transition: background-color 0.2s ease-in-out;
-}
-
-.dark-blue-item:hover .principal  {
+.dark-blue-item:hover {
     background-color: #224ac2;
     color: #ffffff;
 	transition: background-color 0.3s ease-in-out;
@@ -591,5 +611,18 @@ header nav a:hover {
     #section-inscricao div.container a.orange-button:hover {
         background-color: #FFBC4F;
         color: #191c25;
+        border: 1px solid #191c25;
     }
+}
+
+/* ALTERAÇÕES PARA OUTROS TAMANHOS DE TELA */
+@media screen and (max-width: 1199px) {
+    #div-principal-section1 {
+        flex-wrap: wrap;
+    }
+
+    #section1 div.container div.item {
+        width: 100%;
+        padding: 5vw;
+    }    
 }
