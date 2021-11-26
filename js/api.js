@@ -105,4 +105,24 @@ var API = {
 
     },
 
+    get: (id, callback) => {
+
+        $.ajax({
+            type: "POST",
+            url: URL + "/inscritos/get",
+            data: JSON.stringify({
+                id,
+                token: localStorage.getItem("token")
+            }),
+            dataType: "json",
+            success: function success(data) {
+                callback(data);
+            },
+            fail: function fail(erro) {
+                console.log(erro);
+            },
+        });
+
+    }
+
 };

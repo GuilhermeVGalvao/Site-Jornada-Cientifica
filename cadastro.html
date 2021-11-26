@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style_cadastro.css">
+    <title>Cadastro de Novo usuário</title>
+
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/api.js"></script>
+
+</head>
+
+<body>
+    <div class="container flex flex-column flex-justify-center" id="background-div">
+        <div class="container flex flex-column" id="cadastro-frame">
+            <h1>Cadastro de Novo usuário</h1>
+            <form id="cadastro" action="#" method="post">
+                <div>
+                    <label for="nome">Nome: </label>
+                    <input type="text" id="nome" name="nome" class="text" placeholder="Digite seu nome" required>
+                </div>
+
+                <div>
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email" class="text" placeholder="Digite seu email" required>
+                </div>
+
+                <div class="container flex-justify-right">
+                    <div>
+                        <span>Sexo: </span>
+                        <input type="radio" id="sexo-masculino" name="sexo" value="M" required>
+                        <label for="sexo-masculino">Masculino</label>
+                        <input type="radio" id="sexo-feminino" name="sexo" value="F" required>
+                        <label for="sexo-feminino">Feminino</label>
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $("#cadastro").submit(function(evt) {
+
+            evt.preventDefault();
+
+            var nome = $("#nome").val();
+            var email = $("#email").val();
+            var sexo = $("input[name='sexo']:checked").val();
+
+            API.new(nome, email, sexo, res => {
+
+                if (res.code == 200) {
+                    alert("Usuário cadastrado com sucesso!");
+                } else if (res.error) {
+                    alert(res.error);
+                }
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

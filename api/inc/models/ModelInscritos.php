@@ -34,7 +34,7 @@ class ModelInscritos extends ModelRoot {
 
         try {
 
-            $stmt = $this->pdo->prepare("SELECT * FROM inscritos");
+            $stmt = $this->pdo->prepare("SELECT * FROM inscritos ORDER BY id DESC");
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {
@@ -94,6 +94,27 @@ class ModelInscritos extends ModelRoot {
             $this->view->erro('Erro ao deletar inscrito', 'db_model', true);
         }
 
+    }
+
+    public function readInscrito(int $id) {
+
+        try {
+
+            $stmt = $this->pdo->prepare("SELECT * FROM inscritos WHERE id = :id");
+            $stmt = $this->db->bindArray($stmt, [
+                'id' => $id
+            ]);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                return $stmt->fetch(PDO::FETCH_ASSOC);
+            }   
+
+            return false;
+
+        } catch (PDOException $erro) {
+            $this->view->erro('Erro ao ler inscrito', 'db_model', true);
+        }
     }
   
     

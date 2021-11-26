@@ -72,5 +72,19 @@ class ControlInscritos extends ControlRoot{
 
 
     }
+
+    // listar um inscrito
+    public function get() {
+
+        $values = (object) Validation::filter($this->app->post, [
+            'id' => 'int',
+            'token' => 'string'
+        ]);
+
+        $this->control->login->checkToken($values->token);
+
+        $this->view->send($this->model->inscritos->readInscrito($values->id), true);
+
+    }
     
 }

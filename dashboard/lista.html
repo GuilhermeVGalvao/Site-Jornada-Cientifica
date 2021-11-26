@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Listagem de inscritos</title>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/api.js"></script>
+
+    <script>
+        if (localStorage.getItem("token") == null) {
+            alert("Você não está logado");
+            window.location.href = "../login.html";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="master">
+        <h1>Listagem de Inscritos</h1>
+
+        <div id="lista">
+
+        </div>
+
+        <div class="logout">
+            <button onclick="logout()">Sair da conta</button>
+        </div>
+
+    </div>
+
+    <script>
+        API.list(res => {
+            if (res.error) {
+                alert(res.error);
+            } else {
+                let lista = document.getElementById("lista");
+                lista.innerHTML = "";
+                for (let i = 0; i < res.length; i++) {
+                    let inscrito = res[i];
+                    let linha = document.createElement("div");
+                    linha.className = "linha";
+                    linha.innerHTML = `
+                    <div class="coluna">
+                        <div class="nome">${inscrito.nome}</div>
+                        <div class="email">${inscrito.email}</div>
+                        <div class="data">${inscrito.data_cadastro}</div>
+                        <div class="actions">
+                            <button class="editar" onclick="editar(${inscrito.id})">Editar</button>
+                            <button class="excluir" onclick="excluir(${inscrito.id})">Excluir</button>
+                        </div>
+                    </div>
+                    `;
+                    lista.appendChild(linha);
+                }
+            }
+        });
+
+        function editar(id) {
+            window.location.href = "inscrito.html#" + id;
+        }
+
+        function excluir(id) {
+            if (confirm("Deseja realmente excluir?")) {
+                API.delete(id, res => {
+                    if (res.error) {
+                        alert(res.error);
+                    } else {
+                        alert("Usuário excluído com sucesso!");
+                        window.location.href = "lista.html";
+                    }
+                });
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("token");
+            alert("Você saiu da conta!");
+            window.location.href = "../login.html";
+        }
+    </script>
+
+</body>
+
+</html>

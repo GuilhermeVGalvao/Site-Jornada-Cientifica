@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style_cadastro.css">
+    <title>Edição de inscritos</title>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/api.js"></script>
+
+    <script>
+        if (localStorage.getItem("token") == null) {
+            alert("Você não está logado");
+            window.location.href = "../login.html";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container flex flex-column flex-justify-center" id="background-div">
+        <div class="container flex flex-column" id="cadastro-frame">
+            <h1>Edição de inscrito</h1>
+
+            <form id="edit" action="#" method="post">
+
+                <div>
+                    <label for="nome">Nome: </label>
+                    <input type="text" id="nome" name="nome" class="text" placeholder="Digite seu nome" required value="">
+                </div>
+
+                <div>
+                    <label for="email">email: </label>
+                    <input type="email" id="email" name="email" class="text" placeholder="Digite seu email" required value="">
+                </div>
+
+                <div class="container flex-justify-right">
+                    <div>
+                        <span>Sexo: </span>
+                        <input type="radio" id="sxM" name="sexo" value="M">
+                        <label for="sxM">Masculino</label><br>
+                        <input type="radio" id="sxF" name="sexo" value="F">
+                        <label for="sxF">Feminino</label>
+
+                    </div>
+                </div>
+
+                <input type="submit" value="Enviar">
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        if (document.location.hash.length > 0) {
+            var hash = document.location.hash.split("#")[1];
+
+            var id = undefined;
+            API.get(hash, (res) => {
+
+                if (res.id) {
+
+                    id = res.id;
+                    $("#nome").val(res.nome);
+                    $("#email").val(res.email);
+                    $("#sx" + res.sexo).attr("checked", true);
+
+                } else if (res.error) {
+
+                    alert(res.error);
+                    document.location.history.back();
+
+                }
+            })
+        } else {
+            alert("Não foi possivel carregar dados do usuário");
+            document.location.history.back();
+        }
+
+        $("#edit").submit(function(e) {
+            e.preventDefault();
+
+            nome = $("#nome").val()
+            email = $("#email").val()
+            sexo = $("input[name='sexo']:checked").val()
+
+            API.update(id, nome, email, sexo, (res) => {
+
+                if (res.code == 200) {
+
+                    alert("Usuário editado com sucesso!");
+                    document.location.href = "lista.html";
+
+                } else if (res.error) {
+
+                    alert(res.error);
+
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

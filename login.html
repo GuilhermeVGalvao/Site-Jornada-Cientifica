@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style_cadastro.css">
+    <title>Acesse sua conta</title>
+
+    <script src="js/jquery-3.4.1.js"></script>
+
+</head>
+
+<body>
+    <div class="container flex flex-column flex-justify-center" id="background-div">
+        <div class="container flex flex-column" id="cadastro-frame">
+            <h1>Login de Administrador</h1>
+            <form id="login" action="#" method="post">
+
+
+                <div>
+                    <label for="user">Usuário: </label>
+                    <input type="textuser" id="user" name="user" class="text" placeholder="Digite seu usuário" required>
+                </div>
+
+                <div>
+                    <label for="senha">Senha: </label>
+                    <input type="text" id="senha" name="senha" class="text" placeholder="Digite sua senha" required>
+                </div>
+                <div><button type="submit">Enviar</button></div>
+            </form>
+
+            <script>
+                $("#login").submit(function(evt) {
+
+                    evt.preventDefault();
+
+                    senha = md5($("#senha").val());
+                    email = $("#user").val();
+
+                    API.login(email, senha, res => {
+
+                        if (res.token) {
+
+                            localStorage.setItem("token", res.token);
+
+                            alert("Login realizado com sucesso!");
+
+                            window.location.href = "../dashboard/lista.html";
+
+                        } else if (res.error) {
+                            alert(res.error);
+                        }
+
+                    });
+
+                });
+            </script>
+
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/md5.min.js"></script>
+
+</body>
+
+</html>

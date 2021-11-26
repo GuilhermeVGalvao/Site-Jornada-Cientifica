@@ -16,7 +16,9 @@
 #685e4f
 */
 
+
 /* == ALTERAÇÕES GENÉRICAS NA PÁGINA == */
+
 body {
     background-color: #080b10;
     color: #ffffff;
@@ -47,20 +49,23 @@ header {
     color: #fff;
 }
 
+
 /* == MENU DE NAVEGAÇÃO FIXO EXCLUSIVO DA VERSÃO DESKTOP ==*/
+
 header#real-header {
     z-index: 2;
     position: block;
     display: none;
 }
 
+
 /* == ALTERAÇÕES NO MENU DE NAVEGAÇÃO PARA A VERSÃO DESKTOP == */
+
 @media screen and (min-width: 1200px) {
     header#real-header {
         z-index: 2;
         display: block;
     }
-
     .show-just-mobile {
         display: none;
     }
@@ -69,13 +74,14 @@ header#real-header {
     }
 }
 
+
 /* == ALTERAÇÕES NO MENU DE NAVEGAÇÃO PARA A VERSÃO MOBILE == */
+
 @media screen and (max-width: 1199px) {
     header#mobile-version p {
         padding: 7vw;
         font-size: 10vh;
     }
-
     .show-just-mobile {
         display: block;
     }
@@ -105,7 +111,9 @@ header p {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+
 /* MENU INCIAL DA PÁGINA */
+
 #div-menu {
     display: flex;
     justify-content: center;
@@ -187,7 +195,6 @@ header nav a:hover {
 #nav-menu-mobile ul {
     display: flex;
     flex-direction: column;
-    
 }
 
 #nav-menu-mobile ul li {
@@ -209,6 +216,7 @@ header nav a:hover {
 
 
 /* DIV COM O CONTEÚDO DAS SECTIONS */
+
 #conteudo {
     width: auto;
 }
@@ -218,7 +226,9 @@ header nav a:hover {
     padding: 2vh 15vw;
 }
 
+
 /* SECTIONS */
+
 #section1 div.container div.item {
     width: 50%;
 }
@@ -236,6 +246,7 @@ header nav a:hover {
 
 
 /* CLASSES GENÉRICAS PARA FLEX ITEM'S */
+
 .container {
     display: flex;
 }
@@ -257,7 +268,7 @@ header nav a:hover {
 }
 
 .flex-align-stretch {
-    align-items:stretch;
+    align-items: stretch;
 }
 
 .flex-align-center {
@@ -283,6 +294,7 @@ header nav a:hover {
 
 
 /* CLASSES DE ESTILIZAÇÃO */
+
 .button {
     border-radius: 1px;
     text-decoration: none;
@@ -300,11 +312,13 @@ header nav a:hover {
     font-family: 'Nunito';
     margin: 0px 10vw;
     padding: 0px;
-    color:#ffffff
+    color: #ffffff
 }
+
 .generic-link-selection li {
     width: 100%;
 }
+
 .generic-link-selection a {
     padding: 2vw;
     width: 100%;
@@ -327,6 +341,7 @@ header nav a:hover {
     /* color:#191c25; */
     transition: background-color 0.2s ease-in-out;
 }
+
 .yellow-frame:hover {
     background-color: #191c25;
     /* color:#ffe88b; */
@@ -379,6 +394,7 @@ header nav a:hover {
     color: #FFBC4F;
     transition: background-color 0.2s ease-in-out;
 }
+
 .dark-orange-item .principal {
     color: #FFBC4F;
     transition: color 0.3s ease-in-out;
@@ -412,7 +428,9 @@ header nav a:hover {
     transition: background-color 0.2s ease-in-out;
 }
 
+
 /* CORES DE FUNDO */
+
 .gray {
     background-color: #292c35;
 }
@@ -425,17 +443,19 @@ header nav a:hover {
     background-color: #224ac2;
 }
 
+
 /* INTERAÇÕES COM O MOUSE */
+
 .dark-yellow-frame:hover .principal {
     background-color: #ffe88b;
     color: #191c25;
-	transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .dark-blue-item:hover {
     background-color: #224ac2;
     color: #ffffff;
-	transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .dark-orange-frame:hover {
@@ -481,7 +501,9 @@ header nav a:hover {
     transition: background-color 0.3s ease-in-out;
 }
 
+
 /* CLASSES GENÉRICAS PARA POSICIONAMENTO */
+
 .center {
     text-align: center;
 }
@@ -570,26 +592,24 @@ header nav a:hover {
     padding: 0px;
 }
 
+
 /* MODIFICAÇÕES PARA MOBILE */
+
 @media screen and (max-width: 20cm) {
     #conteudo h1 {
         padding: 0px;
         font-size: 7vw;
         margin-top: 1em;
     }
-
     section {
         padding: 0px;
     }
-
     #conteudo {
         margin: 0px;
     }
-
     .frame {
         padding: 5vw 7vw;
     }
-
     .sessao {
         flex-wrap: wrap;
         margin: 0px;
@@ -598,16 +618,13 @@ header nav a:hover {
         padding: 10vw;
         background-color: #FFBC4F;
     }
-
     #section1 div.container div.item {
         width: 100%;
     }
-
     #section-inscricao div.container {
         background-color: #FFBC4F;
         color: #191c25;
     }
-
     #section-inscricao div.container a.orange-button:hover {
         background-color: #FFBC4F;
         color: #191c25;
@@ -615,14 +632,28 @@ header nav a:hover {
     }
 }
 
+
 /* ALTERAÇÕES PARA OUTROS TAMANHOS DE TELA */
+
 @media screen and (max-width: 1199px) {
     #div-principal-section1 {
         flex-wrap: wrap;
     }
-
     #section1 div.container div.item {
         width: 100%;
         padding: 5vw;
-    }    
+    }
+}
+
+.master {
+    padding: 1em 2em;
+}
+
+.coluna {
+    margin-bottom: 20px;
+}
+
+.coluna div {
+    width: 20%;
+    display: inline-block;
 }
